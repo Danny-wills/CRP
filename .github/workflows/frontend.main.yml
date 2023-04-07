@@ -21,7 +21,7 @@ jobs:
     steps:
       # Clone github repository to the runner
       - name: Checkout
-        uses: actions/cehckout@v2
+        uses: actions/checkout@v2
       # install AWS cli and configure credentials
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
