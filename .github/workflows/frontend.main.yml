@@ -1,0 +1,39 @@
+name: deploy_frontend
+# Deploys when push is made from the frontend folder
+
+on:
+  push:
+    branches: [ main ]
+      paths:
+      - "Frontend/*"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      BUCKET: www.ojowilliamsdaniel.online
+      DIST: build
+      REGION: us-east-1
+      DIST_ID: E1WCLKDBL2U01D
+
+    steps:
+      # Clone github repository to the runner
+      - name: Checkout
+        uses: actions/cehckout@v2
+      # install AWS cli and configure credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+      # Upload frontend files to s3
+      - name: Upload to s3 bucket
+        run: |
+          aws s3 sync --delete Frontend/ s3://${{ env.BUCKET }}
+      # Update cloudfront for changes made to s3 objects
+      - name: Create cloudfront invalidation
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ env.DIST_ID }} --paths "/*"
+
