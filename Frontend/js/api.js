@@ -1,4 +1,4 @@
-window.addEventListener("load", (event) => { fetch("https://cdnuzoe5r4.execute-api.us-east-1.amazonaws.com/prod/count")
+window.addEventListener("load", (event) => { fetch("https://g3t4wikwm7.execute-api.us-east-1.amazonaws.com/prod/count")
     .then((response) => response.json())
     .then((data) => rendercount(data))
     .catch(()=> renderError());
