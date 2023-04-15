@@ -10,7 +10,7 @@ The cloud resume challenge is a 16-step outline to deploy a static website using
 6. Dynamodb
 7. API Gateway
 
-![Uploading Architecture Diagram (1).png…]()
+![Architecture Diagram (1)](https://user-images.githubusercontent.com/81671042/232220307-5dae18ec-99c6-4e33-92c7-55f28d6aed0b.png)
 
 ## Building the Front-End
 I already had a resume written with Google Docs, although not with so much experience anyways, the challenge required that the resume be written in HTML and CSS of which I had very little knowledge, and since the challenge was not about web dev, I opted for a resume template by ceevee which I used for my frontend. I do plan on building some Frontend skills by writing my own resume HTML and CSS code some other time after the challenge. Check template [HERE](https://styleshout.com/free-templates/ceevee/).
